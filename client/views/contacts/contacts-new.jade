@@ -8,6 +8,9 @@ h4 NEW CONTACT
         label Full Name
         input.form-control(type='text', ng-model='contact.name')
       .form-group
+        label Address
+        textarea.form-control(ng-model='contact.address')
+      .form-group
         label Birthday
         input.form-control(type='date', ng-model='contact.bday')
       .form-group
