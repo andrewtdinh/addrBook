@@ -15,7 +15,11 @@ angular.module('addressBook')
   };
 
   $scope.edit = function(contact, index){
-    Contact.display(contact, index);
+    Contact.edit(contact, index);
+  };
+
+  $scope.delete = function(contact, index){
+    Contact.delete(contact, index);
   };
 
   // $scope.afUser.$loaded(function(){

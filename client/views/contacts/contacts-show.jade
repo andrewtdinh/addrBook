@@ -12,13 +12,13 @@ h4 CONTACT DETAILS
       .form-group
         label Phone Number: &nbsp;&nbsp; {{contact.phone}}
       .form-group
-        label Email Address: &nbsp;&nbsp; {{contact.email}}
+        a(href='mailto:{{contact.email}}') Email Address: &nbsp;&nbsp; {{contact.email}}
       .form-group
-        label Web Page: &nbsp;&nbsp; {{contact.webpage}}
+        a(href='{{contact.webpage}}') Web Page: &nbsp;&nbsp; {{contact.webpage}}
       .form-group
-        label Twitter Page: &nbsp;&nbsp; {{contact.twitter}}
+        a(href='{{contact.twitter}}') Twitter Page: &nbsp;&nbsp; {{contact.twitter}}
       .form-group
-        label Facebook Page: &nbsp;&nbsp; {{contact.facebook}}
+        a(href='{{contact.facebook}}') Facebook Page: &nbsp;&nbsp; {{contact.facebook}}
   .col-xs-6
       .form-group
         img.profileImg.img-responsive.img-thumbnail(ng-src='{{contact.photo}}')

@@ -18,9 +18,13 @@ angular.module('addressBook')
   Contact.displayContact = function(contact, index){
     var key = $rootScope.afContacts.$keyAt(index);
     console.log('key: ', key);
-    // console.log('name: ', $rootScope.afContacts.key.name);
     $state.go('contacts.show', {key: key});
+  };
 
+  Contact.delete = function(contact, index){
+    var key = $rootScope.afContacts.$keyAt(index);
+    console.log('key: ', key);
+    // console.log('name: ', $rootScope.afContacts.key.name);
   };
   //
   // Album.addInfo = function(album){
