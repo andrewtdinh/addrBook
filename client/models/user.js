@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('addressBook')
 .factory('User', function($rootScope){
 
   function User(){
