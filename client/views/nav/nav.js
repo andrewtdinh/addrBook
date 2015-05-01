@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('addressBook')
-.controller('NavCtrl', function($rootScope, $scope, $state, User, $firebaseObject){
+.controller('NavCtrl', function($firebaseArray, $rootScope, $scope, $state, User, $firebaseObject){
 
   $scope.afAuth.$onAuth(function(data){
     if(data){
@@ -9,12 +9,16 @@ angular.module('addressBook')
       $rootScope.displayName = getDisplayName(data);
       $rootScope.fbUser = $rootScope.fbRoot.child('users/' + data.uid);
       $rootScope.afUser = $firebaseObject($rootScope.fbUser);
+      $rootScope.fbContacts = $rootScope.fbUser.child('contacts');
+      $rootScope.afContacts = $firebaseArray($rootScope.fbContacts);
       $state.go('contacts.list');
     }else{
       $rootScope.activeUser = null;
       $rootScope.displayName = null;
       $rootScope.fbUser = null;
       $rootScope.afUser= null;
+      $rootScope.fbContacts = null;
+      $rootScope.afContacts = null;
       $state.go('home');
     }
 

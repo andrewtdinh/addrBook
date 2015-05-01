@@ -18,15 +18,15 @@ H4 LIST OF CONTACTS
           th Edit Contact
       tbody
         tr(ng-repeat='contact in contacts track by $index')
-          td 
-          td  
-          td 
-          td  
-          td 
-          td  
-          td 
-          td  
-          td 
+          td: img.imgList.img-responsive.img-thumbnail(ng-src='{{contact.photo}}')
+          td {{contact.name}} 
+          td {{contact.bday}} 
+          td {{contact.phone}} 
+          td {{contact.address}} 
+          td {{contact.email}} 
+          td {{contact.webpage}} 
+          td {{contact.twitter}} 
+          td {{contact.facebook}} 
           td  
           td  
           

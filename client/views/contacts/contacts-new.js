@@ -31,14 +31,5 @@ angular.module('addressBook')
     } else {
       preview.src = '';
     }
-    // $scope.contact.photo = null;
-    // $state.go('contacts.new');
   };
-
-  // function getPhotos(){
-  //   var fbPhotos = $rootScope.fbUser.child('albums/' + $state.params.album+ '/photos');
-  //   var afPhotos = $firebaseArray(fbPhotos);
-  //   return afPhotos;
-  // }
-
 });

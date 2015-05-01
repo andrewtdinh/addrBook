@@ -2,9 +2,7 @@
 
 angular.module('addressBook')
 .factory('Contact', function($rootScope, $window, $firebaseArray, $state){
-  $rootScope.fbContacts = $rootScope.fbUser.child('contacts');
-  $rootScope.afContacts = $firebaseArray($rootScope.fbContacts);
-
+  
   function Contact(){
   }
 

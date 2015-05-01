@@ -3,7 +3,7 @@ h4 NEW CONTACT
 
 .row
   .col-xs-4
-    form
+    form(name='contactForm', novalidate)
       .form-group
         label Full Name
         input.form-control(type='text', ng-model='contact.name')
