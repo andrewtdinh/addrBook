@@ -1,15 +1,18 @@
 'use strict';
 
 angular.module('addressBook')
-.controller('ContactsNewCtrl', function($rootScope, $scope, $state){
+.controller('ContactsNewCtrl', function($rootScope, $scope, $state, Contact){
 
-  // $scope.add = function(album){
-  //   Album.add(album)
-  //   .then(function(){
-  //     $scope.album.name = '';
-  //     $state.go('albums.list');
-  //   });
-  // };
+  $scope.save = function(contact){
+    if($scope.photo){
+      contact.photo = $scope.photo;
+    }
+    Contact.save(contact)
+    .then(function(){
+      $scope.contact = {};
+      $state.go('contacts.list');
+    });
+  };
 
   $scope.convertPhoto = function(photo){
     var preview = document.querySelector('img');
@@ -20,6 +23,7 @@ angular.module('addressBook')
     reader.onloadend = function () {
       preview.src = reader.result;
       // Album.addPhoto(reader.result, $scope.name);
+      $scope.photo = reader.result;
     };
 
     if (file) {
@@ -27,8 +31,8 @@ angular.module('addressBook')
     } else {
       preview.src = '';
     }
-    $scope.contact.photo = null;
-    $state.go('contacts.new');
+    // $scope.contact.photo = null;
+    // $state.go('contacts.new');
   };
 
   // function getPhotos(){
