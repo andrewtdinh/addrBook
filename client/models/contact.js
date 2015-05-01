@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('addressBook')
-.factory('Contact', function($rootScope, $window, $firebaseArray, $state){
+.factory('Contact', function($rootScope, $window, $firebaseArray, $state, $firebaseObject){
 
   function Contact(){
   }
@@ -23,8 +23,12 @@ angular.module('addressBook')
 
   Contact.delete = function(contact, index){
     var key = $rootScope.afContacts.$keyAt(index);
+    var fbContact = $rootScope.fbContacts.child('' + key);
+    var afContact = $firebaseObject(fbContact);
+
+    return afContact.$remove();
     console.log('key: ', key);
-    // console.log('name: ', $rootScope.afContacts.key.name);
+    console.log('fbContact: ', afContact);
   };
   //
   // Album.addInfo = function(album){
