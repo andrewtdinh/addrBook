@@ -4,16 +4,6 @@ angular.module('addressBook')
 .controller('ContactsNewCtrl', function($rootScope, $scope, $state, Contact){
 
   $scope.save = function(contact){
-    if($scope.photo){
-      contact.photo = $scope.photo;
-    }else {
-      contact.photo = '';
-    }
-    if (contact.bday){
-      console.log('Has birthday!')
-      contact.bday = contact.bday.getTime();
-    }
-
     Contact.save(contact)
     .then(function(){
       $scope.contact = {};

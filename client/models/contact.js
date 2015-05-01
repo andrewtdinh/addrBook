@@ -7,6 +7,11 @@ angular.module('addressBook')
   }
 
   Contact.save = function(contact){
+    var birthday;
+    if (contact.bday){
+      console.log('Has birthday!');
+      birthday = contact.bday.getTime();
+    }
     return $rootScope.afContacts.$add(contact);
   };
 

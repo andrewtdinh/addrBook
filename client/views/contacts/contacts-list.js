@@ -14,6 +14,10 @@ angular.module('addressBook')
 
   };
 
+  $scope.edit = function(contact, index){
+    Contact.display(contact, index);
+  };
+
   // $scope.afUser.$loaded(function(){
   //   $scope.albums = $scope.afUser.names ? $scope.afUser.names.split(',') : [];
   //

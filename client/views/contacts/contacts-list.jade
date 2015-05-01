@@ -7,26 +7,17 @@ H4 LIST OF CONTACTS
         tr
           th 
           th Name
-          th Birthday
           th Phone Number
-          th Address
           th Email
           th Home Page
-          th Twitter Page
-          th Facebook Page
           th Delete Contact
           th Edit Contact
       tbody
-        tr(ng-repeat='contact in contacts track by $index', ng-click='displayDetails(contact, $index)')
-          td: img.imgList.img-responsive.img-thumbnail(ng-src='{{contact.photo}}')
-          td {{contact.name}} 
-          td {{contact.bday}} 
+        tr(ng-repeat='contact in contacts track by $index')
+          td(ng-click='displayDetails(contact, $index)'): img.imgList.img-responsive.img-thumbnail(ng-src='{{contact.photo}}')
+          td(ng-click='displayDetails(contact, $index)'): a{{contact.name}} 
           td {{contact.phone}} 
-          td {{contact.address}} 
-          td {{contact.email}} 
-          td {{contact.webpage}} 
-          td {{contact.twitter}} 
-          td {{contact.facebook}} 
+          td: a(href='mailto:{{contact.email}}') {{contact.email}}
           td: button.btn-xs.btn-warning(ng-click='edit(contact, $index)') Edit Contact
           td: button.btn-xs.btn-danger(ng-click='delete(contact, $index)') Delete Contact 
           

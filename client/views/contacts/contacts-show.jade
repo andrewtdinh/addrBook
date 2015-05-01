@@ -1,14 +1,14 @@
 h4 CONTACT DETAILS
 
 .row
-  .col-xs-4
+  .col-xs-3
     form(name='contactForm', novalidate)
       .form-group
         label Full Name: &nbsp;&nbsp; {{contact.name}}
       .form-group
         label Address: &nbsp;&nbsp; {{contact.address}}
       .form-group
-        label Birthday: &nbsp;&nbsp; {{contact.bday}}
+        label Birthday: &nbsp;&nbsp; {{contact.bday | date: 'MM-dd-yyyy'}}
       .form-group
         label Phone Number: &nbsp;&nbsp; {{contact.phone}}
       .form-group
