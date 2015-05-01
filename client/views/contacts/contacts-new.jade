@@ -1,0 +1,49 @@
+
+h4 NEW CONTACT 
+
+.row
+  .col-xs-4
+    form
+      .form-group
+        label Full Name
+        input.form-control(type='text', ng-model='contact.name')
+      .form-group
+        label Birthday
+        input.form-control(type='date', ng-model='contact.bday')
+      .form-group
+        label Phone Number
+        input.form-control(type='tel', ng-model='contact.phone')
+      .form-group
+        label Email Address
+        input.form-control(type='email', ng-model='contact.email')
+      .form-group
+        label Web Page
+        input.form-control(type='url', ng-model='contact.webpage')
+      .form-group
+        label Twitter Page
+        input.form-control(type='url', ng-model='contact.twitter')
+      .form-group
+        label Facebook Page
+        input.form-control(type='url', ng-model='contact.facebook')
+  .col-xs-6
+      .form-group
+        img.profileImg.img-responsive.img-thumbnail.gallery(ng-src='{{contact.photo.$value}}')
+.row
+  .col-xs-3
+      .form-group
+        label Profile Photo
+        input#upInput.form-control(type='file', ng-model='contact.photo')
+  .col-xs-3
+    form
+      .form-group
+        button#upBtn.btn.btn-success(ng-click='convertPhoto(contact.photo)') Upload Photo
+.row
+  .col-xs-3
+    form
+      .form-group
+        img.previmg(ng-model='photoPreview')
+.row
+  .col-xs-4
+    form
+      .form-group
+        button.btn.btn-success(ng-click='saveAlbumInfo(album)') Update Contact Info

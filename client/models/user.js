@@ -6,6 +6,11 @@ angular.module('addressBook')
   function User(){
   }
 
+  User.oauth = function(provider){
+    console.log(provider);
+    return $rootScope.afAuth.$authWithOAuthPopup(provider);
+  }
+
   User.register = function(user){
     return $rootScope.afAuth.$createUser(user);
   };
