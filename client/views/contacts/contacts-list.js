@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('addressBook')
-.controller('ContactsListCtrl', function($rootScope, $scope, $state, User, $firebaseArray){
+.controller('ContactsListCtrl', function(Contact, $rootScope, $scope, $state, User, $firebaseArray){
   User.init();
 
   $rootScope.afUser.$loaded().then(function(){
     $rootScope.afContacts.$watch(generateList);
   });
 
-  
+  $scope.displayDetails = function(contact, index){
+    console.log('Inside displayDetails');
+    Contact.displayContact(contact, index);
+
+  };
 
   // $scope.afUser.$loaded(function(){
   //   $scope.albums = $scope.afUser.names ? $scope.afUser.names.split(',') : [];

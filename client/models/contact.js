@@ -2,12 +2,20 @@
 
 angular.module('addressBook')
 .factory('Contact', function($rootScope, $window, $firebaseArray, $state){
-  
+
   function Contact(){
   }
 
   Contact.save = function(contact){
     return $rootScope.afContacts.$add(contact);
+  };
+
+  Contact.displayContact = function(contact, index){
+    var key = $rootScope.afContacts.$keyAt(index);
+    console.log('key: ', key);
+    // console.log('name: ', $rootScope.afContacts.key.name);
+    $state.go('contacts.show', {key: key});
+
   };
   //
   // Album.addInfo = function(album){

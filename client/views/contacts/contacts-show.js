@@ -1,8 +1,13 @@
 'use strict';
 
 angular.module('addressBook')
-.controller('ContactsShowCtrl', function($rootScope, $scope, $state, $window, $firebaseArray){
-  // $scope.name = $state.params.album;
+.controller('ContactsShowCtrl', function($rootScope, $scope, $state, $window, $firebaseObject){
+  $rootScope.afContacts.$loaded().then(function(){
+    var fbContact = $rootScope.fbContacts.child(''+ $state.params.key);
+    var afContact = $firebaseObject(fbContact);
+    $scope.contact = afContact;
+  });
+
 
   // // $scope.afUSer.$watch(displayInfo);
   //

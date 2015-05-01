@@ -1,38 +1,24 @@
+h4 CONTACT DETAILS
+
 .row
   .col-xs-4
-    form
+    form(name='contactForm', novalidate)
       .form-group
-        h2 {{name}}
-        label Add Photo
-        input.form-control(type='file', ng-model='photo')
+        label Full Name: &nbsp;&nbsp; {{contact.name}}
       .form-group
-        button.btn.btn-success.center-block(ng-click='convertPhoto(photo)') Upload photo
+        label Address: &nbsp;&nbsp; {{contact.address}}
       .form-group
-        img.previmg.center-block
-    form
+        label Birthday: &nbsp;&nbsp; {{contact.bday}}
       .form-group
-        label Description
-        input.form-control(type='text', ng-model='album.description')
-        label Date
-        input.form-control(type='date', ng-model='album.date')
+        label Phone Number: &nbsp;&nbsp; {{contact.phone}}
       .form-group
-        button.btn.btn-success.center-block(ng-click='saveAlbumInfo(album)') Update Album Info
-.row
-  .col-xs-2.col-xs-offset-4
-    img.img-responsive.img-thumbnail.feature(ng-src='{{afPhotos[0].$value}}')
-  .col-xs-4
-    h3 Album Information
-    h4 Description: {{printAlbum.description}}
-    h4 Album Date: {{printAlbum.date | date: 'MM-dd-yyyy'}}
-.row
-  .col-xs-2.col-xs-offset-5
-    table.table.table-striped
-      thead
-        tr
-          th Image
-          th Delete
-      tbody
-        tr(ng-repeat='photo in afPhotos track by $index')
-          td: img.img-responsive.img-thumbnail.gallery(ng-src='{{photo.$value}}')
-          td: button.btn.btn-danger(ng-click='deleteImg(photo, $index)') Delete
-    
+        label Email Address: &nbsp;&nbsp; {{contact.email}}
+      .form-group
+        label Web Page: &nbsp;&nbsp; {{contact.webpage}}
+      .form-group
+        label Twitter Page: &nbsp;&nbsp; {{contact.twitter}}
+      .form-group
+        label Facebook Page: &nbsp;&nbsp; {{contact.facebook}}
+  .col-xs-6
+      .form-group
+        img.profileImg.img-responsive.img-thumbnail(ng-src='contact.photo')

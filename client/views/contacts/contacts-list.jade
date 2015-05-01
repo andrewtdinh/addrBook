@@ -17,7 +17,7 @@ H4 LIST OF CONTACTS
           th Delete Contact
           th Edit Contact
       tbody
-        tr(ng-repeat='contact in contacts track by $index')
+        tr(ng-repeat='contact in contacts track by $index', ng-click='displayDetails(contact, $index)')
           td: img.imgList.img-responsive.img-thumbnail(ng-src='{{contact.photo}}')
           td {{contact.name}} 
           td {{contact.bday}} 
@@ -27,8 +27,8 @@ H4 LIST OF CONTACTS
           td {{contact.webpage}} 
           td {{contact.twitter}} 
           td {{contact.facebook}} 
-          td  
-          td  
+          td: button.btn-xs.btn-warning(ng-click='edit(contact, $index)') Edit Contact
+          td: button.btn-xs.btn-danger(ng-click='delete(contact, $index)') Delete Contact 
           
           
         //- sbutton.btn.btn-danger.btn-xs(ng-click='removeAlbum(album, $index)') Delete
